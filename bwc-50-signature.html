@@ -88,32 +88,5 @@
                 a{color:#000000;}
             </style>
         </div>
-        <button id="50yr-btn">Copy Signature</button>
-        <script>
-            const copyContent = (e) => {
-                if(typeof ClipboardItem === "undefined") {
-                   alert("Sorry! This feature is not yet available in the browser you are using.\n\n" +
-                       "Selecting the text and pasting it to your email should give you the same result.")
-                   return;
-                }
-                
-                const object = document.getElementById("50yr");
-                const type = "text/html";
-                const blob = new Blob([object.innerHTML], {type});
-                const data = [new ClipboardItem({[type]: blob})];
-
-                navigator.clipboard.write(data).then(function () {
-                   object.style.opacity = '0.4';
-                    
-                   setTimeout(function () {
-                       object.style.opacity = '1';
-                   }, 80)
-                    
-                });
-            };
-
-            const annBtn = document.getElementById("50yr-btn");
-            annBtn.addEventListener("click", copyContent);
-        </script>
     </body>
 </html>
